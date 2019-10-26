@@ -1,5 +1,5 @@
-class User {
-  User({this.dataString}) {
+class Driver {
+  Driver({this.dataString}) {
     print('tom');
   }
 
