@@ -1,7 +1,9 @@
 class Driver {
   Driver({this.dataString}) {
-    print('tom');
+    final data = dataString.split(' ');
+    this.name = data.first;
   }
 
   String dataString;
+  String name;
 }
