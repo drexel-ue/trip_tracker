@@ -1,9 +1,8 @@
-class Driver {
-  Driver({this.dataString}) {
-    final data = dataString.split(' ');
-    this.name = data.first;
-  }
+import 'package:trip_tracker/models/trip.dart';
 
-  String dataString;
+class Driver {
+  Driver({this.name});
+
   String name;
+  List<Trip> trips = [];
 }
