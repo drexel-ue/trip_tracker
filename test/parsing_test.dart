@@ -22,6 +22,7 @@ void main() async {
   String appDocPath = appDocDir.path;
   File inputFile = File('$appDocPath/inputFile.txt');
 
+  // if the inputFile already exists, no need to write to it.
   if (!await inputFile.exists()) await inputFile.writeAsString('''
         Driver Dan
         Driver Lauren
@@ -37,12 +38,11 @@ void main() async {
 
   dataLines.forEach((String line) {
     // map space delimited data to an array.
-    List<String> data = line.trim().split(' ');
+    final List<String> data = line.trim().split(' ');
 
     // if we are dealing with a driver.
-    if (data.first.toLowerCase() == 'driver') {
+    if (data.first.toLowerCase() == 'driver')
       drivers[data[1]] = Driver(data[1]);
-    }
     // if we are dealing with a trip.
     else if (data.first.toLowerCase() == 'trip') {
       final trip = Trip(
