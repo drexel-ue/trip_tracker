@@ -3,13 +3,15 @@ import 'package:trip_tracker/models/driver.dart';
 import 'package:trip_tracker/models/trip.dart';
 
 void main() {
-  final driver = Driver('Crash Test Dummy');
-
   test('drivers are initialized with a name.', () {
+    final driver = Driver('Crash Test Dummy');
+
     expect(driver.name == 'Crash Test Dummy', true);
   });
 
   test('drivers are initialized with no trips.', () {
+    final driver = Driver('Crash Test Dummy');
+
     expect(driver.tripCount == 0, true);
   });
 
@@ -28,6 +30,8 @@ void main() {
   );
 
   test('drivers are able to add trips.', () {
+    final driver = Driver('Crash Test Dummy');
+
     expect(driver.tripCount == 0, true);
 
     driver.addTrip(trip1);
@@ -59,5 +63,14 @@ void main() {
 
     driver.addTrip(trip2);
     expect(driver.driveTime / Duration.millisecondsPerMinute == 50, true);
+  });
+
+  test('able to correctly state distance driven and average speed.', () {
+    final driver = Driver('Crash Test Dummy');
+
+    expect(driver.tripStatement == 'Crash Test Dummy: 0', true);
+    driver.addTrip(trip1);
+    driver.addTrip(trip2);
+    expect(driver.tripStatement == 'Crash Test Dummy: 39 miles @ 47 mph', true);
   });
 }
