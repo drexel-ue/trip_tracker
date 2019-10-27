@@ -66,5 +66,19 @@ void main() {
     expect(speed == 47 && trips == 2, true);
   });
 
-  test('is able to format parsed data into desired format.', () {});
+  test('is able to format parsed data into desired format.', () {
+    String outputString = '';
+
+    final List<Driver> driverList = drivers.values.toList();
+    driverList.sort((Driver driverA, Driver driverB) =>
+        driverB.distanceTraveled - driverA.distanceTraveled);
+    driverList.forEach((Driver driver) {
+      outputString += driver.tripStatement + '\n';
+    });
+
+    expect(
+        outputString ==
+            'Lauren: 42 miles @ 34 mph\nDan: 39 miles @ 47 mph\nKumi: 0\n',
+        true);
+  });
 }
