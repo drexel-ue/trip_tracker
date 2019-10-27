@@ -7,4 +7,8 @@ void main() {
   test('drivers are initialized with a name.', () {
     expect(driver.name == 'Crash Test Dummy', true);
   });
+
+  test('drivers are initialized with no trips.', () {
+    expect(driver.tripCount == 0, true);
+  });
 }
