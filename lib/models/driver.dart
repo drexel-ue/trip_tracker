@@ -7,12 +7,12 @@ class Driver {
   String get name => _name;
   List<Trip> _trips = [];
   int distanceTraveled = 0;
-  int timeTaken = 0;
+  int driveTime = 0;
   int get tripCount => _trips.length;
-  int get avgSpeed => timeTaken == 0
+  int get avgSpeed => driveTime == 0
       ? 0
       : (distanceTraveled.toDouble() /
-              (timeTaken / Duration.millisecondsPerHour.toDouble()))
+              (driveTime / Duration.millisecondsPerHour.toDouble()))
           .round();
 
   int tallyDistances() {
@@ -34,6 +34,6 @@ class Driver {
   void addTrip(Trip trip) {
     _trips.add(trip);
     distanceTraveled = tallyDistances();
-    timeTaken = tallyTimes();
+    driveTime = tallyTimes();
   }
 }

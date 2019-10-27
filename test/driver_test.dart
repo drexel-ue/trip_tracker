@@ -40,7 +40,19 @@ void main() {
   test('total distance driven increments when a new trip is added.', () {
     final driver = Driver('Crash Test Dummy');
 
-    expect(driver.tripCount == 0, true);
+    expect(driver.distanceTraveled == 0, true);
+
+    driver.addTrip(trip1);
+    expect(driver.distanceTraveled == 17, true);
+
+    driver.addTrip(trip2);
+    expect(driver.distanceTraveled == 39, true);
+  });
+
+  test('total time driven increments when a new trip is added.', () {
+    final driver = Driver('Crash Test Dummy');
+
+    expect(driver.driveTime = 0, true);
 
     driver.addTrip(trip1);
     expect(driver.distanceTraveled == 17, true);
