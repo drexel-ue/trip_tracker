@@ -19,8 +19,7 @@ void main() {
     String appDocPath = appDocDir.path;
     File testFile = File('$appDocPath/testFile.txt');
 
-    if (!await testFile.exists()) {
-      await testFile.writeAsString('''
+    await testFile.writeAsString('''
         Driver Dan
         Driver Lauren
         Driver Kumi
@@ -28,7 +27,6 @@ void main() {
         Trip Dan 06:12 06:32 21.8
         Trip Lauren 12:01 13:16 42.0
       ''');
-    }
 
     Map<String, Driver> drivers = {};
 

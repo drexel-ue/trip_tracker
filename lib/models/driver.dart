@@ -5,4 +5,13 @@ class Driver {
 
   String name;
   List<Trip> trips = [];
+  int get distanceTraveled => tallyDistances();
+  int get timeTaken => tallyTimes();
+  int avgSpeed = 0;
+
+  int tallyDistances() {
+    double total = 0;
+    trips.forEach((Trip trip) => total += trip.distance);
+    return total.round();
+  }
 }
