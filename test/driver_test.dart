@@ -24,7 +24,7 @@ void main() {
     driver: 'Crash Test Dummy',
     startTime: DateTime(2017, 9, 7, 6, 12).millisecondsSinceEpoch,
     endTime: DateTime(2017, 9, 7, 6, 32).millisecondsSinceEpoch,
-    distance: 28.1,
+    distance: 21.8,
   );
 
   test('drivers are able to add trips.', () {
@@ -35,5 +35,17 @@ void main() {
 
     driver.addTrip(trip2);
     expect(driver.tripCount == 2, true);
+  });
+
+  test('total distance driven increments when a new trip is added.', () {
+    final driver = Driver('Crash Test Dummy');
+
+    expect(driver.tripCount == 0, true);
+
+    driver.addTrip(trip1);
+    expect(driver.distanceTraveled == 17, true);
+
+    driver.addTrip(trip2);
+    expect(driver.distanceTraveled == 39, true);
   });
 }
