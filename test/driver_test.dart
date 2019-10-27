@@ -52,12 +52,12 @@ void main() {
   test('total time driven increments when a new trip is added.', () {
     final driver = Driver('Crash Test Dummy');
 
-    expect(driver.driveTime = 0, true);
+    expect(driver.driveTime == 0, true);
 
     driver.addTrip(trip1);
-    expect(driver.distanceTraveled == 17, true);
+    expect(driver.driveTime / Duration.millisecondsPerMinute == 30, true);
 
     driver.addTrip(trip2);
-    expect(driver.distanceTraveled == 39, true);
+    expect(driver.driveTime / Duration.millisecondsPerMinute == 50, true);
   });
 }
