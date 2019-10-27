@@ -8,6 +8,7 @@ class Driver {
   List<Trip> _trips = [];
   int distanceTraveled = 0;
   int driveTime = 0;
+  String get tripStatement => sumItUp();
   int get tripCount => _trips.length;
   int get avgSpeed => driveTime == 0
       ? 0
@@ -35,5 +36,10 @@ class Driver {
     _trips.add(trip);
     distanceTraveled = tallyDistances();
     driveTime = tallyTimes();
+  }
+
+  String sumItUp() {
+    if (distanceTraveled == 0) return '$_name: 0';
+    return '$_name: $distanceTraveled miles @ $avgSpeed mph';
   }
 }
