@@ -4,6 +4,7 @@ class Driver {
   Driver(this._name);
 
   String _name;
+  String get name => _name;
   List<Trip> _trips = [];
   int distanceTraveled = 0;
   int timeTaken = 0;

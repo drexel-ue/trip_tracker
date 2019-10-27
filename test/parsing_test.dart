@@ -56,12 +56,12 @@ void main() async {
     }
   });
 
-  test('is able to parse .txt documents for trip and driver data', () {
+  test('is able to parse .txt documents for trip and driver data.', () {
     final dan = drivers['Dan'];
     final speed = dan.avgSpeed;
     final trips = dan.tripCount;
     expect(speed == 47 && trips == 2, true);
   });
 
-  test('is able to format parsed data into desired format', () {});
+  test('is able to format parsed data into desired format.', () {});
 }
