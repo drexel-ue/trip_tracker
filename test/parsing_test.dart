@@ -43,14 +43,10 @@ void main() {
       } else if (data.first.toLowerCase() == 'trip') {
         final trip = Trip(
           driver: data[1],
-          startTime: TimeOfDay(
-            hour: int.parse(data[2].substring(0, 2)),
-            minute: int.parse(data[2].substring(3)),
-          ),
-          endTime: TimeOfDay(
-            hour: int.parse(data[3].substring(0, 2)),
-            minute: int.parse(data[3].substring(3)),
-          ),
+          startTime:
+              DateTime.parse('2005-12-1 ' + data[2]).millisecondsSinceEpoch,
+          endTime:
+              DateTime.parse('2005-12-1 ' + data[3]).millisecondsSinceEpoch,
           distance: double.parse(data[4]),
         );
       }
