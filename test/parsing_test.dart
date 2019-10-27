@@ -57,8 +57,9 @@ void main() async {
   });
 
   test('is able to parse .txt documents for trip and driver data', () async {
-    print(drivers['Dan'].avgSpeed);
-
-    expect(true, true);
+    final dan = drivers['Dan'];
+    final speed = dan.avgSpeed;
+    final trips = dan.tripCount;
+    expect(speed == 47 && trips == 2, true);
   });
 }

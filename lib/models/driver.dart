@@ -7,6 +7,7 @@ class Driver {
   List<Trip> _trips = [];
   int distanceTraveled = 0;
   int timeTaken = 0;
+  int get tripCount => _trips.length;
   int get avgSpeed => timeTaken == 0
       ? 0
       : (distanceTraveled.toDouble() /
