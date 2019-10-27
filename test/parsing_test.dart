@@ -20,9 +20,9 @@ void main() async {
   Directory appDocDir = await getApplicationDocumentsDirectory();
   // returns the root path to this directory
   String appDocPath = appDocDir.path;
-  File testFile = File('$appDocPath/testFile.txt');
+  File inputFile = File('$appDocPath/inputFile.txt');
 
-  await testFile.writeAsString('''
+  if (!await inputFile.exists()) await inputFile.writeAsString('''
         Driver Dan
         Driver Lauren
         Driver Kumi
@@ -33,7 +33,7 @@ void main() async {
 
   Map<String, Driver> drivers = {};
 
-  List<String> dataLines = await testFile.readAsLines();
+  List<String> dataLines = await inputFile.readAsLines();
 
   dataLines.forEach((String line) {
     // map space delimited data to an array.
@@ -56,10 +56,12 @@ void main() async {
     }
   });
 
-  test('is able to parse .txt documents for trip and driver data', () async {
+  test('is able to parse .txt documents for trip and driver data', () {
     final dan = drivers['Dan'];
     final speed = dan.avgSpeed;
     final trips = dan.tripCount;
     expect(speed == 47 && trips == 2, true);
   });
+
+  test('is able to format parsed data into desired format', () {});
 }
