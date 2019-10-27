@@ -44,15 +44,15 @@ void main() {
         final trip = Trip(
           driver: data[1],
           startTime:
-              DateTime.parse('2005-12-1 ' + data[2]).millisecondsSinceEpoch,
+              DateTime.parse('2005-01-20 ' + data[2]).millisecondsSinceEpoch,
           endTime:
-              DateTime.parse('2005-12-1 ' + data[3]).millisecondsSinceEpoch,
+              DateTime.parse('2005-01-20 ' + data[3]).millisecondsSinceEpoch,
           distance: double.parse(data[4]),
         );
       }
     });
 
-    print(drivers);
+    drivers['Dan'].avgSpeed;
 
     expect(true, true);
   });
