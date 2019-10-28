@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:trip_tracker/blocs/file_bloc.dart';
+import 'package:trip_tracker/widgets/output.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key key}) : super(key: key);
@@ -57,7 +58,7 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              // Output(),
+              Output(),
             ],
           ),
         ),

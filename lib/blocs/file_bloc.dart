@@ -43,45 +43,45 @@ class FileBloc {
 
   void _distributeParsedData(File file) async {
     // list of lines read from the inputFile.
-    List<String> dataLines = await file.readAsLines();
+    List<String> _dataLines = await file.readAsLines();
 
     // let's handle each line.
-    dataLines.forEach((String line) {
+    _dataLines.forEach((String line) {
       // map space delimited data to an array.
-      final List<String> data = line.trim().split(' ');
+      final List<String> _data = line.trim().split(' ');
 
       // if we are dealing with a driver.
-      if (data.first.toLowerCase() == 'driver')
+      if (_data.first.toLowerCase() == 'driver' && _drivers[_data[1]] == null)
         // key the driver object to the driver's name in the driver hash map.
         // this is assuming the name is always formatted the same and there
         // are only ever first names. extra precautions would not be hard to
         // implement. but, this is a simple demonstration.
-        _drivers[data[1]] = Driver(data[1]);
+        _drivers[_data[1]] = Driver(_data[1]);
       // if we are dealing with a trip.
-      else if (data.first.toLowerCase() == 'trip') {
-        final trip = Trip(
-          driver: data[1],
+      else if (_data.first.toLowerCase() == 'trip') {
+        final _trip = Trip(
+          driver: _data[1],
           startTime:
               // as all drives are completed on the same day, the calendar
               // date does not matter. a default calendar date is provided
               // for the following parsing method to latch on to.
-              DateTime.parse('2005-01-20 ' + data[2]).millisecondsSinceEpoch,
+              DateTime.parse('2005-01-20 ' + _data[2]).millisecondsSinceEpoch,
           endTime:
-              DateTime.parse('2005-01-20 ' + data[3]).millisecondsSinceEpoch,
-          distance: double.parse(data[4]),
+              DateTime.parse('2005-01-20 ' + _data[3]).millisecondsSinceEpoch,
+          distance: double.parse(_data[4]),
         );
 
         // add the trip to the appropriate driver's list of trips.
-        _drivers[trip.driver].addTrip(trip);
+        _drivers[_trip.driver].addTrip(_trip);
       }
     });
 
     List<String> _outputList = [];
 
-    final List<Driver> driverList = _drivers.values.toList();
-    driverList.sort((Driver driverA, Driver driverB) =>
+    final List<Driver> _driverList = _drivers.values.toList();
+    _driverList.sort((Driver driverA, Driver driverB) =>
         driverB.distanceTraveled - driverA.distanceTraveled);
-    driverList.forEach((Driver driver) {
+    _driverList.forEach((Driver driver) {
       _outputList.add(driver.tripStatement);
     });
 
