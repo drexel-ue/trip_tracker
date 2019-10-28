@@ -59,7 +59,7 @@ void main() {
   );
 
   test(
-    'drivers cannot add trips with average speeds below 5 mph or above 100mph',
+    'drivers cannot add trips with average speeds below 5 mph or above 100 mph',
     () {
       final driver = Driver('Crash Test Dummy');
 

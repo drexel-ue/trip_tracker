@@ -50,9 +50,15 @@ class Driver {
   // adds the given trip to _trips and reevaluates distanceTraveled
   //  and driveTime using tallyDistance and tallyTime respectively.
   void addTrip(Trip trip) {
-    _trips.add(trip);
-    distanceTraveled = tallyDistances();
-    driveTime = tallyTimes();
+    final tripStart = trip.startTime / Duration.millisecondsPerHour.toDouble();
+    final tripEnd = trip.endTime / Duration.millisecondsPerHour.toDouble();
+    final avgSpeed = trip.distance / (tripEnd - tripStart);
+
+    if (5 < avgSpeed && avgSpeed < 100) {
+      _trips.add(trip);
+      distanceTraveled = tallyDistances();
+      driveTime = tallyTimes();
+    }
   }
 
   // generates string returned by tripStatement.
