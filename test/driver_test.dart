@@ -43,17 +43,35 @@ void main() {
     distance: 210.8,
   );
 
-  test('drivers are able to add trips.', () {
-    final driver = Driver('Crash Test Dummy');
+  test(
+    'drivers can add trips with average speeds between 5 and 100 mph.',
+    () {
+      final driver = Driver('Crash Test Dummy');
 
-    expect(driver.tripCount == 0, true);
+      expect(driver.tripCount == 0, true);
 
-    driver.addTrip(validTrip1);
-    expect(driver.tripCount == 1, true);
+      driver.addTrip(validTrip1);
+      expect(driver.tripCount == 1, true);
 
-    driver.addTrip(validTrip2);
-    expect(driver.tripCount == 2, true);
-  });
+      driver.addTrip(validTrip2);
+      expect(driver.tripCount == 2, true);
+    },
+  );
+
+  test(
+    'drivers cannot add trips with average speeds below 5 mph or above 100mph',
+    () {
+      final driver = Driver('Crash Test Dummy');
+
+      expect(driver.tripCount == 0, true);
+
+      driver.addTrip(invalidTrip1);
+      expect(driver.tripCount == 0, true);
+
+      driver.addTrip(invalidTrip2);
+      expect(driver.tripCount == 0, true);
+    },
+  );
 
   test('total distance driven increments when a new trip is added.', () {
     final driver = Driver('Crash Test Dummy');
