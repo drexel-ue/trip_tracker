@@ -48,7 +48,7 @@ class Driver {
   }
 
   // adds the given trip to _trips and reevaluates distanceTraveled
-  //  and driveTime using tallyDistance and tallyTime respectively.
+  // and driveTime using tallyDistance and tallyTime respectively.
   void addTrip(Trip trip) {
     final tripStart = trip.startTime / Duration.millisecondsPerHour.toDouble();
     final tripEnd = trip.endTime / Duration.millisecondsPerHour.toDouble();
