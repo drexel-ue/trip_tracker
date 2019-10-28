@@ -11,7 +11,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>trip_tracker</string>
+	<string>Trip Tracker</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -41,5 +41,10 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>Trip Tracker needs your persimission to access files you select in order to extract driver and trip data.</string>
+		<string>Trip Tracker needs your persimission to access files from remote locations, like Google Cloud or DropBox.</string>
+	</array>
 </dict>
 </plist>
