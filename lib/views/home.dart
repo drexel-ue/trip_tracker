@@ -29,14 +29,20 @@ class MyHomePage extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10.0),
-                child: const Text(
-                  'ex: selected_file.txt',
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    decoration: TextDecoration.underline,
-                    decorationStyle: TextDecorationStyle.solid,
-                    decorationColor: Colors.white,
+                child: StreamBuilder<String>(
+                  initialData: 'ex: selected_file.txt',
+                  stream: fileBloc.filenameStream,
+                  builder:
+                      (BuildContext context, AsyncSnapshot<String> snapshot) =>
+                          Text(
+                    snapshot.data,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      decoration: TextDecoration.underline,
+                      decorationStyle: TextDecorationStyle.solid,
+                      decorationColor: Colors.white,
+                    ),
                   ),
                 ),
               ),
