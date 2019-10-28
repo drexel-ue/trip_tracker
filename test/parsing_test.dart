@@ -8,6 +8,7 @@ import 'package:trip_tracker/models/driver.dart';
 import 'package:trip_tracker/models/trip.dart';
 
 void main() {
+
   // hash map to hold all parsed drivers.
   Map<String, Driver> drivers = {};
 
