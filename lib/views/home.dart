@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:trip_tracker/blocs/file_bloc.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final fileBloc = Provider.of<FileBloc>(context);
+
     return Scaffold(
       backgroundColor: const Color.fromRGBO(72, 90, 119, 1),
       appBar: AppBar(
