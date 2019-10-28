@@ -18,9 +18,14 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(72, 90, 119, 1),
       appBar: AppBar(
         title: Text('Trip Tracker'),
         backgroundColor: Color.fromRGBO(72, 90, 119, 1),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[],
       ),
     );
   }
