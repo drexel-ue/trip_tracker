@@ -28,6 +28,10 @@ dependencies:
 
   path_provider: any
 
+  provider: any
+
+  rxdart: any
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
