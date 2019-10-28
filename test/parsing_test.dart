@@ -51,12 +51,18 @@ void main() {
       // if we are dealing with a driver.
       if (data.first.toLowerCase() == 'driver')
         // key the driver object to the driver's name in the driver hash map.
+        // this is assuming the name is always formatted the same and there
+        // are only ever first names. extra precautions would not be hard to
+        // implement. but, this is a simple demonstration.
         drivers[data[1]] = Driver(data[1]);
       // if we are dealing with a trip.
       else if (data.first.toLowerCase() == 'trip') {
         final trip = Trip(
           driver: data[1],
           startTime:
+              // as all drives are completed on the same day, the calendar
+              // date does not matter. a default calendar date is provided
+              // for the following parsing method to latch on to.
               DateTime.parse('2005-01-20 ' + data[2]).millisecondsSinceEpoch,
           endTime:
               DateTime.parse('2005-01-20 ' + data[3]).millisecondsSinceEpoch,
