@@ -8,8 +8,10 @@ import 'package:trip_tracker/models/driver.dart';
 import 'package:trip_tracker/models/trip.dart';
 
 void main() {
+  // hash map to hold all parsed drivers.
   Map<String, Driver> drivers = {};
 
+  // sets up the environment that will be used in all tests.
   setUpAll(() async {
     WidgetsFlutterBinding.ensureInitialized();
 
@@ -17,12 +19,15 @@ void main() {
         MethodChannel('plugins.flutter.io/path_provider');
 
     // creates a mock handler for path_provider package to hang on to.
+    // in this case, returning '.' to make the app document directory
+    // point to the top of the test folder.
     channel.setMockMethodCallHandler((MethodCall methodCall) async => ".");
 
     // returns application document directory.
     Directory appDocDir = await getApplicationDocumentsDirectory();
-    // returns the root path to this directory
+    // returns the root path to this directory.
     String appDocPath = appDocDir.path;
+    // variable pointing to the input file for testing.
     File inputFile = File('$appDocPath/inputFile.txt');
 
     // if the inputFile already exists, no need to write to it.
@@ -35,14 +40,17 @@ void main() {
         Trip Lauren 12:01 13:16 42.0
       ''');
 
+    // list of lines read from the inputFile.
     List<String> dataLines = await inputFile.readAsLines();
 
+    // let's handle each line.
     dataLines.forEach((String line) {
       // map space delimited data to an array.
       final List<String> data = line.trim().split(' ');
 
       // if we are dealing with a driver.
       if (data.first.toLowerCase() == 'driver')
+        // key the driver object to the driver's name in the driver hash map.
         drivers[data[1]] = Driver(data[1]);
       // if we are dealing with a trip.
       else if (data.first.toLowerCase() == 'trip') {
@@ -54,6 +62,8 @@ void main() {
               DateTime.parse('2005-01-20 ' + data[3]).millisecondsSinceEpoch,
           distance: double.parse(data[4]),
         );
+
+        // add the trip to the appropriate driver's list of trips.
         drivers[trip.driver].addTrip(trip);
       }
     });
