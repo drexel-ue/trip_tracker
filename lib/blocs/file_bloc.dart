@@ -15,7 +15,9 @@ class FileBloc {
   final eventSubject = BehaviorSubject<FileEvent>();
 
   FileBloc() {
-    eventSubject.listen((FileEvent event) {});
+    eventSubject.listen((FileEvent event) {
+      if (event is SelectFile) _onSelectFile();
+    });
   }
 
   void _onSelectFile() async {
