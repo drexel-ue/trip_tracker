@@ -1,7 +1,4 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:trip_tracker/blocs/file_bloc.dart';
 import 'package:trip_tracker/views/home.dart';
