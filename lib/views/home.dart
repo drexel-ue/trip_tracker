@@ -41,7 +41,9 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
               FlatButton(
-                onPressed: () {},
+                onPressed: () {
+                  fileBloc.eventSubject.add(SelectFile());
+                },
                 color: Colors.white,
                 child: Text(
                   'SELECT FILE',
