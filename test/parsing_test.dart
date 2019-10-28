@@ -86,6 +86,8 @@ void main() {
       outputString += driver.tripStatement + '\n';
     });
 
+    debugPrint(outputString);
+
     expect(
         outputString ==
             'Lauren: 42 miles @ 34 mph\nDan: 39 miles @ 47 mph\nKumi: 0\n',
