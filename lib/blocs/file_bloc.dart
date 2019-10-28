@@ -17,6 +17,9 @@ class FileBloc {
   final _filenameSubject = BehaviorSubject<String>();
   Stream<String> get filenameStream => _filenameSubject.stream;
 
+  final _outputSubject = BehaviorSubject<List<String>>();
+  Stream<List<String>> get outputStream => _outputSubject.stream;
+
   final eventSubject = BehaviorSubject<FileEvent>();
 
   FileBloc() {
@@ -30,6 +33,8 @@ class FileBloc {
       type: FileType.CUSTOM,
       fileExtension: 'txt',
     );
+
+    _distributeParsedData(_file);
 
     _filename = _file.path.split('/').last;
 
@@ -79,10 +84,13 @@ class FileBloc {
     driverList.forEach((Driver driver) {
       _outputList.add(driver.tripStatement);
     });
+
+    _outputSubject.add(_outputList);
   }
 
   dispose() {
     _filenameSubject?.drain();
+    _outputSubject?.drain();
     eventSubject?.drain();
   }
 }
