@@ -22,4 +22,4 @@ Before the app can be ran on iOS, a development team must be selected using Xcod
 
 ## Screenshot
 
-![screenshot](https://github.com/trip_tracker_mobile/blob/master/example.png)
+![screenshot](https://github.com/drexel-ue/trip_tracker_mobile/blob/master/example.png)
