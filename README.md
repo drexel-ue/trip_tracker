@@ -6,7 +6,7 @@ Trip Tracker is a mobile application designed to parse .txt files for Driver and
 
 ## Setting up for running and testing
 
-If you do not have the Flutter SDK, click the link provided to get setup! After that, make sure the Flutter and Dart extentions are installed in your preferred IDE. VSCode was used for the construction of this project, so the helpful hints will be coming from that perspective. If you are interested in diving into Flutter (which I highly recommend ;-]), here is a link to a wonderful VSCode extention!
+If you do not have the [Flutter SDK](https://flutter.dev/docs/get-started/install), click the link provided to get setup! After that, make sure the Flutter and Dart extentions are installed in your preferred IDE. VSCode was used for the construction of this project, so the helpful hints will be coming from that perspective.
 
 ## Testing
 
